@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">IconChange</string>
+    <string name="app_name_new">NewIconChange</string>
 </resources>
