@@ -1,9 +1,8 @@
 package com.fqxyi.iconchange;
 
-import android.content.ComponentName;
-import android.content.pm.PackageManager;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
@@ -12,44 +11,38 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        AppManager.getInstance().addActivity(this);
     }
 
     /**
      * 设置MainActivity为启动入口
-     * @param view
      */
     public void setMain(View view) {
-        PackageManager packageManager = getPackageManager();
-        packageManager.setComponentEnabledSetting(new ComponentName(this, getPackageName() +
-                ".NewActivity"), PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager
-                .DONT_KILL_APP);
-        packageManager.setComponentEnabledSetting(new ComponentName(this, getPackageName() +
-                ".MainActivity"), PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager
-                .DONT_KILL_APP);
+        Util.enableMain(this, false);
     }
 
     /**
-     * 设置NewActivity为启动入口
-     * @param view
+     * 设置AliasActivity为启动入口
      */
-    public void setNew(View view) {
-        PackageManager packageManager = getPackageManager();
-        packageManager.setComponentEnabledSetting(new ComponentName(this, getPackageName() +
-                        ".NewActivity"), PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-                PackageManager.DONT_KILL_APP);
-        packageManager.setComponentEnabledSetting(new ComponentName(this, getPackageName() +
-                ".MainActivity"), PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager
-                .DONT_KILL_APP);
+    public void setAlias(View view) {
+        Util.enableAlias(this, false);
     }
 
+    /**
+     * 退出应用时更换icon
+     */
     public void setFinish(View view) {
-        PackageManager packageManager = getPackageManager();
-        packageManager.setComponentEnabledSetting(new ComponentName(this, getPackageName() +
-                        ".NewActivity"), PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-                0);
-        packageManager.setComponentEnabledSetting(new ComponentName(this, getPackageName() +
-                ".MainActivity"), PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager
-                .DONT_KILL_APP);
+        AppManager.getInstance().finishAllActivity();
+        if (Util.activityEnabled(this, ".MainActivity")) {
+            Util.enableAlias(this, true);
+        } else {
+            Util.enableMain(this, true);
+        }
+    }
+
+    public void openSecond(View view) {
+        Intent intent = new Intent(this, OtherActivity.class);
+        startActivity(intent);
     }
 
 }

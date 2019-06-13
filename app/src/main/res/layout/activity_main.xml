@@ -8,18 +8,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="setMain"
-        android:text="Main Activity" />
+        android:text="Set Main Activity" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="setNew"
-        android:text="New Activity" />
+        android:onClick="setAlias"
+        android:text="Set Alias Activity" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="setFinish"
         android:text="Finish" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="openSecond"
+        android:text="Open Second Activity" />
 
 </LinearLayout>
