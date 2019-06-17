@@ -26,6 +26,11 @@ public class Util {
         return (info != null && info.enabled);
     }
 
+    /**
+     * 设置MainActivity的enabled为true
+     * @param context
+     * @param force true 保证icon即时生效
+     */
     public static void enableMain(Context context, boolean force) {
         if (context == null || activityEnabled(context, ".MainActivity")) {
             return;
@@ -41,6 +46,11 @@ public class Util {
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED, enableFlag);
     }
 
+    /**
+     * 设置AliasActivity的enabled为true
+     * @param context
+     * @param force true 保证icon即时生效
+     */
     public static void enableAlias(Context context, boolean force) {
         if (context == null || activityEnabled(context, ".AliasActivity")) {
             return;
@@ -56,6 +66,10 @@ public class Util {
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED, enableFlag);
     }
 
+    /**
+     * 跳转到MainActivity
+     * @param context
+     */
     public static void openMain(Context context) {
         if (context == null) {
             return;
@@ -67,6 +81,10 @@ public class Util {
         context.startActivity(intent);
     }
 
+    /**
+     * 跳转到AliasActivity
+     * @param context
+     */
     public static void openAlias(Context context) {
         if (context == null) {
             return;
