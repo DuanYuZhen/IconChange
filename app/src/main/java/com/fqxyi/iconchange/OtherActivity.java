@@ -14,10 +14,10 @@ public class OtherActivity extends AppCompatActivity {
     }
 
     public void openMain(View view) {
-        if (Util.activityEnabled(this, ".MainActivity")) {
-            Util.openMain(this);
+        if (IconChangeManager.activityEnabled(this, ".MainActivity")) {
+            IconChangeManager.openMain(this);
         } else {
-            Util.openAlias(this);
+            IconChangeManager.openAlias(this);
         }
     }
 

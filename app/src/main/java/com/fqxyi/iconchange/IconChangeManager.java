@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 
-public class Util {
+public class IconChangeManager {
 
     /**
      * 判断activity是否可用
@@ -15,10 +15,10 @@ public class Util {
         if (context == null) {
             return false;
         }
-        PackageManager pm = context.getPackageManager();
-        ComponentName cn = new ComponentName(context, context.getPackageName() + activityPath);
         ActivityInfo info = null;
         try {
+            PackageManager pm = context.getPackageManager();
+            ComponentName cn = new ComponentName(context, context.getPackageName() + activityPath);
             info = pm.getActivityInfo(cn, 0);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
@@ -37,13 +37,17 @@ public class Util {
         }
         int enableFlag = force ? 0 : PackageManager.DONT_KILL_APP;
 
-        PackageManager packageManager = context.getPackageManager();
-        packageManager.setComponentEnabledSetting(
-                new ComponentName(context, context.getPackageName() + ".AliasActivity"),
-                PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-        packageManager.setComponentEnabledSetting(
-                new ComponentName(context, context.getPackageName() + ".MainActivity"),
-                PackageManager.COMPONENT_ENABLED_STATE_ENABLED, enableFlag);
+        try {
+            PackageManager packageManager = context.getPackageManager();
+            packageManager.setComponentEnabledSetting(
+                    new ComponentName(context, context.getPackageName() + ".AliasActivity"),
+                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+            packageManager.setComponentEnabledSetting(
+                    new ComponentName(context, context.getPackageName() + ".MainActivity"),
+                    PackageManager.COMPONENT_ENABLED_STATE_ENABLED, enableFlag);
+        } catch (Exception e) {
+
+        }
     }
 
     /**
@@ -57,13 +61,17 @@ public class Util {
         }
         int enableFlag = force ? 0 : PackageManager.DONT_KILL_APP;
 
-        PackageManager packageManager = context.getPackageManager();
-        packageManager.setComponentEnabledSetting(
-                new ComponentName(context, context.getPackageName() + ".MainActivity"),
-                PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-        packageManager.setComponentEnabledSetting(
-                new ComponentName(context, context.getPackageName() + ".AliasActivity"),
-                PackageManager.COMPONENT_ENABLED_STATE_ENABLED, enableFlag);
+        try {
+            PackageManager packageManager = context.getPackageManager();
+            packageManager.setComponentEnabledSetting(
+                    new ComponentName(context, context.getPackageName() + ".MainActivity"),
+                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+            packageManager.setComponentEnabledSetting(
+                    new ComponentName(context, context.getPackageName() + ".AliasActivity"),
+                    PackageManager.COMPONENT_ENABLED_STATE_ENABLED, enableFlag);
+        } catch (Exception e) {
+
+        }
     }
 
     /**

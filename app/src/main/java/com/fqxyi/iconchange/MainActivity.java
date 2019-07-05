@@ -18,14 +18,14 @@ public class MainActivity extends AppCompatActivity {
      * 设置MainActivity为启动入口
      */
     public void setMain(View view) {
-        Util.enableMain(this, false);
+        IconChangeManager.enableMain(this, false);
     }
 
     /**
      * 设置AliasActivity为启动入口
      */
     public void setAlias(View view) {
-        Util.enableAlias(this, false);
+        IconChangeManager.enableAlias(this, false);
     }
 
     /**
@@ -33,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
      */
     public void setFinish(View view) {
         AppManager.getInstance().finishAllActivity();
-        if (Util.activityEnabled(this, ".MainActivity")) {
-            Util.enableAlias(this, true);
+        if (IconChangeManager.activityEnabled(this, ".MainActivity")) {
+            IconChangeManager.enableAlias(this, true);
         } else {
-            Util.enableMain(this, true);
+            IconChangeManager.enableMain(this, true);
         }
     }
 
