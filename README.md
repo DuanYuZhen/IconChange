@@ -23,6 +23,10 @@ public static void openMain(Context context) {
 }
 ```
 
+# GIF
+
+![iconchange](iconchange.gif)
+
 # 参考文章
 
 - [Android动态修改应用图标和名称](https://juejin.im/post/5c36f2226fb9a049b7809170)
