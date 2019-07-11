@@ -15,17 +15,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * 设置MainActivity为启动入口
+     * 设置 activityDefault 为启动入口
      */
-    public void setMain(View view) {
-        IconChangeManager.enableMain(this, false);
+    public void setActivityDefault(View view) {
+        IconChangeManager.enable(this, false, 0);
     }
 
     /**
-     * 设置AliasActivity为启动入口
+     * 设置 activity618 为启动入口
      */
-    public void setAlias(View view) {
-        IconChangeManager.enableAlias(this, false);
+    public void setActivity618(View view) {
+        IconChangeManager.enable(this, false, 1);
+    }
+
+    /**
+     * 设置 activity1225 为启动入口
+     */
+    public void setActivity1225(View view) {
+        IconChangeManager.enable(this, false, 2);
     }
 
     /**
@@ -33,11 +40,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void setFinish(View view) {
         AppManager.getInstance().finishAllActivity();
-        if (IconChangeManager.activityEnabled(this, ".MainActivity")) {
-            IconChangeManager.enableAlias(this, true);
-        } else {
-            IconChangeManager.enableMain(this, true);
-        }
+        IconChangeManager.changeIcon(this, 2);
     }
 
     public void openSecond(View view) {

@@ -5,25 +5,31 @@
     android:orientation="vertical">
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="setMain"
-        android:text="Set Main Activity" />
+        android:onClick="setActivityDefault"
+        android:text="Set Default Activity" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="setAlias"
-        android:text="Set Alias Activity" />
+        android:onClick="setActivity618"
+        android:text="Set 618 Activity" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="setActivity1225"
+        android:text="Set 1225 Activity" />
+
+    <Button
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="setFinish"
         android:text="Finish" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openSecond"
         android:text="Open Second Activity" />

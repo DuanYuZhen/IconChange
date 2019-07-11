@@ -14,11 +14,7 @@ public class OtherActivity extends AppCompatActivity {
     }
 
     public void openMain(View view) {
-        if (IconChangeManager.activityEnabled(this, ".MainActivity")) {
-            IconChangeManager.openMain(this);
-        } else {
-            IconChangeManager.openAlias(this);
-        }
+        IconChangeManager.openApp(this);
     }
 
 }
