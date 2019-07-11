@@ -10,7 +10,7 @@ import android.content.pm.PackageManager;
  */
 public class IconChangeManager {
 
-    private static final String[] ICON_ARR = {
+    private static final String[] ACTIVITY_PATH_ARR = {
             ".MainActivity",
             ".activity618",
             ".activity1225",
@@ -26,13 +26,13 @@ public class IconChangeManager {
         /**
          * 业务逻辑：根据接口返回数据，决定需要更换为哪个icon
          */
-        enable(context, true, iconType);
+        enableComponent(context, true, iconType);
     }
 
     /**
      * 判断 component 是否可用
      */
-    private static boolean activityEnabled(Context context, String activityPath) {
+    private static boolean componentEnabled(Context context, String activityPath) {
         if (context == null) {
             return false;
         }
@@ -46,20 +46,20 @@ public class IconChangeManager {
      * @param force 设置为false，可能会导致应用在一段时间后退出
      * @param iconType 需要和数组索引保持一致
      */
-    public static void enable(Context context, boolean force, int iconType) {
-        if (context == null || iconType > ICON_ARR.length - 1) {
+    public static void enableComponent(Context context, boolean force, int iconType) {
+        if (context == null || iconType > ACTIVITY_PATH_ARR.length - 1) {
             return;
         }
-        String activityPath = ICON_ARR[iconType];
-        if (activityEnabled(context, activityPath)) {
+        String activityPath = ACTIVITY_PATH_ARR[iconType];
+        if (componentEnabled(context, activityPath)) {
             return;
         }
         int enableFlag = force ? 0 : PackageManager.DONT_KILL_APP;
 
         try {
             PackageManager packageManager = context.getPackageManager();
-            // 先禁用所有组件
-            for (String item : ICON_ARR) {
+            // 先禁用所有不需要启用的其它组件
+            for (String item : ACTIVITY_PATH_ARR) {
                 if (item.equals(activityPath)) {
                     continue;
                 }
@@ -83,8 +83,8 @@ public class IconChangeManager {
         if (context == null) {
             return;
         }
-        for (String item : ICON_ARR) {
-            if (!activityEnabled(context, item)) {
+        for (String item : ACTIVITY_PATH_ARR) {
+            if (!componentEnabled(context, item)) {
                 continue;
             }
             Intent intent = new Intent();

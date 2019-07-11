@@ -18,21 +18,21 @@ public class MainActivity extends AppCompatActivity {
      * 设置 activityDefault 为启动入口
      */
     public void setActivityDefault(View view) {
-        IconChangeManager.enable(this, false, 0);
+        IconChangeManager.enableComponent(this, false, 0);
     }
 
     /**
      * 设置 activity618 为启动入口
      */
     public void setActivity618(View view) {
-        IconChangeManager.enable(this, false, 1);
+        IconChangeManager.enableComponent(this, false, 1);
     }
 
     /**
      * 设置 activity1225 为启动入口
      */
     public void setActivity1225(View view) {
-        IconChangeManager.enable(this, false, 2);
+        IconChangeManager.enableComponent(this, false, 2);
     }
 
     /**
