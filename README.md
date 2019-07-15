@@ -64,5 +64,5 @@
 
 # 参考文章
 
-- [<activity-alias>](https://developer.android.com/guide/topics/manifest/activity-alias-element)
+- [activity-alias](https://developer.android.com/guide/topics/manifest/activity-alias-element)
 - [Android动态修改应用图标和名称](https://juejin.im/post/5c36f2226fb9a049b7809170)
