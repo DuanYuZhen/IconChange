@@ -12,12 +12,17 @@
 # 限制
 
 - 1、只能替换预埋在应用内的icon，不能替换网络图片（未尝试过）；
-- 2、只能在应用退出的时候更换icon，有两个原因：1、系统刷新icon时间较长；2、系统刷新icon可能会杀死应用；
+- 2、建议在应用退出的时候更换icon；
+
+原因一：系统刷新icon时间较长，此时若返回到桌面（比如说按Home键），点击应用图标会提示`应用未安装`；
+
+原因二：系统刷新icon时间较长，若应用一直保持在前台，可能（部分设备/部分场景）存在过了一段时间之后应用被杀死；
+
 - ~~3、icon切换为activity-alias标签中指定的图片后，AndroidStudio不能运行安装。需要切回activity标签中指定的图片，才可以运行安装；~~
 
 解决方案：
 
-1、在AndroidManifest.xml文件中为activity和activity-alis设置scheme，例如：
+1、在AndroidManifest.xml文件中为activity和activity-alias设置scheme，例如：
 
 ```xml
 <intent-filter>
