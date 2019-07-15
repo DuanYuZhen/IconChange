@@ -16,6 +16,17 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="icon_change"
+                    android:path="/main"
+                    android:scheme="fqxyi" />
+            </intent-filter>
         </activity>
         <activity-alias
             android:name="activity618"
@@ -27,6 +38,17 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="icon_change"
+                    android:path="/main"
+                    android:scheme="fqxyi" />
+            </intent-filter>
         </activity-alias>
         <activity-alias
             android:name="activity1225"
@@ -37,6 +59,17 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="icon_change"
+                    android:path="/main"
+                    android:scheme="fqxyi" />
             </intent-filter>
         </activity-alias>
         <activity android:name=".OtherActivity" />
